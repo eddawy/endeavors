@@ -1,0 +1,43 @@
+{% extends "master_details.html" %}
+
+{% block title %}{{ subject }}{% endblock %}
+
+{% block content %}
+<!-- Wrapper -->
+  <section id="wrapper">
+    <header>
+      <div class="inner">
+        <h2>{{ subject.name }}</h2>
+        <p>{{ subject.description }}</p>
+      </div>
+    </header>
+    <!-- Content -->
+      <div class="wrapper">
+        <div class="inner">
+          {% for topic in topics %}
+          <section id="three" class="wrapper spotlight withshadow">
+            <div class="inner">
+                <a href="/topics/{{ topic.id }}" class="image"><img src="/{{ topic.image }}" alt="" /></a>
+                <div class="content">
+                  <h2 class="major">{{ topic }}</h2>
+                  <p>{{ topic.body }}</p>
+                  <a href="/topics/{{ topic.id }}" class="special">Read more</a>
+              </div>
+            </div>
+          </section>
+          {% endfor %}
+          <section class="features">
+            {% for featured_topic in featured_topics %}
+            <article>
+              <a href="/topics/{{ featured_topic.id }}" class="image"><img src="/{{ featured_topic.image }}" alt="" /></a>
+              <h3 class="major">{{ featured_topic }}</h3>
+              <p>{{ featured_topic.body }}</p>
+              <a href="/topics/{{ featured_topic.id }}" class="special">Read more</a>
+            </article>
+            {% endfor %}
+          </section>
+
+        </div>
+      </div>
+    </section>
+{% endblock %}

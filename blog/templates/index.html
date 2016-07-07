@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <div class="logo"><span class="icon fa-diamond"></span></div>
+            <h2>This is Endeavors</h2>
+            <p>Hello, this is eddawy blog I just called it endeavors because that's what it is.</p>
+        </div>
+    </section>
+
+<!-- Wrapper -->
+    <section id="wrapper">
+
+        {% for topic in latest_topics %}
+        <!-- One -->
+            <section id="{{topic.title}}" class="wrapper spotlight withshadow">
+                <div class="inner">
+                    <a href="/topics/{{topic.id}}" class="image"><img src="/{{ topic.image }}" alt="" /></a>
+                    <div class="content">
+                        <h2 class="major">{{ topic.title }}</h2>
+                        <p>{{ topic.body|slice:"0:350" }} ...</p>
+                        <a href="/topics/{{topic.id}}" class="special">Read more</a>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+
+        <!-- Four -->
+        <section id="four" class="wrapper alt withshadow">
+            <div class="inner">
+                <h2 class="major">Featured Topics</h2>
+                <p>We have selected those topics for you with no valid reason.</p>
+                <section class="features">
+                  {% for topic in latest_topics %}
+                    <article>
+                        <a href="/topics/{{topic.id}}" class="image"><img src="/{{ topic.image }}" alt="" /></a>
+                        <h3 class="major">{{ topic.title }}</h3>
+                        <p>{{ topic.body|slice:"0:350" }} ...</p>
+                        <a href="/topics/{{topic.id}}" class="special">Learn more</a>
+                    </article>
+                    {% endfor %}
+                </section>
+                <ul class="actions">
+                    <li><a href="#" class="button">Browse All</a></li>
+                </ul>
+            </div>
+        </section>
+    </section>
+{% endblock %}
+{% block get_in_touch %}
+    <h2 class="major">Get in touch</h2>
+    <p>We are waiting for your questions, feedback and suggestions. submit them here and we will get back to you through
+        your email or and article published here.</p>
+    <form method="POST" action="/feedbacks/">
+        {% csrf_token %}
+        <div class="field">
+            <label for="name">Name</label>
+            {{ feedback_form.name }}
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            {{ feedback_form.email }}
+        </div>
+        <div class="field">
+            <label for="subject">Subject</label>
+            {{ feedback_form.subject }}
+        </div>
+        <div class="field">
+            <label for="message">Message</label>
+            {{ feedback_form.message }}
+        </div>
+        <ul class="actions">
+            <li><input type="submit" value="Send Message" /></li>
+        </ul>
+    </form>
+    <ul class="contact">
+        <li class="fa-envelope"><a href="mailto:ahmadeldawy@gmail.com">ahmadeldawy@gmail.com</a></li>
+        <li class="fa-twitter"><a href="https://www.twitter.com/eddawy">@eddawy</a></li>
+        <!--<li class="fa-facebook"><a href="https://facebook.com/eddawy">Ahmed Eddawy</a></li>-->
+        <!--<li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>-->
+    </ul>
+{% endblock %}

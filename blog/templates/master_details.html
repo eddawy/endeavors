@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <header id="header" >
+        <h1><a href="/">Endeavors</a></h1>
+        <nav >
+                <a href="/">Home</a>
+                {% for section in sections %}
+                <a href="/sections/{{ section.id }}">{{ section }}</a>
+                {% endfor %}
+                <a href="#">Log In</a>
+                <a href="#">Sign Up</a>
+        </nav>
+    </header>
+{% endblock %}

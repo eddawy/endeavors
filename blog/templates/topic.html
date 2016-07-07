@@ -1,0 +1,46 @@
+{% extends "master_details.html" %}
+
+{% block title %}{{ topic.title }}{% endblock %}
+
+{% block content %}
+<!-- Wrapper -->
+<section id="wrapper">
+    <header>
+        <div class="inner">
+            <h2>{{ topic.title }}</h2>
+            <p>
+                viewed {{topic.topic_visits.all|length}} times since {{ topic.created_at }}
+            </p>
+            <blockquote>{{ topic.quote }}</blockquote>
+        </div>
+    </header>
+    <!-- Content -->
+    <div class="wrapper">
+        <div class="inner article">
+            <p>{{ topic.body }}</p>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="inner">
+        <section class="features">
+        <article>
+            <a href="#" class="image"><img src="images/pic04.jpg" alt=""/></a>
+            <h3 class="major">Sed feugiat lorem</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus
+                ultrices.</p>
+            <a href="#" class="special">Learn more</a>
+        </article>
+        <article>
+            <a href="#" class="image"><img src="images/pic05.jpg" alt=""/></a>
+            <h3 class="major">Nisl placerat</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus
+                ultrices.</p>
+            <a href="#" class="special">Learn more</a>
+        </article>
+    </section>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

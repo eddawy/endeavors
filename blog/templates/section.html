@@ -1,0 +1,30 @@
+{% extends "master_details.html" %}
+
+{% block title %}{{ section }}{% endblock %}
+
+{% block content %}
+<!-- Wrapper -->
+  <section id="wrapper">
+    <header>
+      <div class="inner">
+        <h2>{{ section }}</h2>
+        <p>{{ section.description }}</p>
+      </div>
+    </header>
+    <!-- Content -->
+    <div class="wrapper">
+      <div class="inner">
+
+        <section>
+          <div class="6u 12u$(medium)">
+            <ul class="actions vertical">
+              {% for subject in subjects %}
+              <li><a href="/subjects/{{ subject.id }}" class="button special fit">{{subject}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+{% endblock %}
