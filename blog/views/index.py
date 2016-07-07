@@ -6,8 +6,8 @@ def index(request):
     latest_topics = Topic.Topic.get_latest_topics()
     featured_topics = Topic.Topic.get_featured_topics()
     context = {
-    'latest_topics': latest_topics,
-    'featured_topics': featured_topics,
+        'latest_topics': latest_topics,
+        'featured_topics': featured_topics,
     }
     template = loader.get_template('index.html')
     return HttpResponse(template.render(context, request))

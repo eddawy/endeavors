@@ -9,7 +9,7 @@ class SubjectAdmin(admin.ModelAdmin):
     fields = ['name', 'section']
 
 class TopicAdmin(admin.ModelAdmin):
-    fields = ['title', 'body', 'subject', 'image', 'featured']
+    fields = ['title', 'quote', 'body', 'subject', 'image', 'featured']
 
     def save_model(self, request, obj, form, change):
         if not change:

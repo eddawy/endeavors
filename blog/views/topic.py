@@ -25,7 +25,9 @@ class TopicView(BaseView):
                                 session_key=request.session.session_key)
             visit.save()
         template = loader.get_template('topic.html')
+        featured_topics = Topic.get_featured_topics()
         context = {
             'topic': topic,
+            'featured_topics': featured_topics,
         }
         return HttpResponse(template.render(context, request))

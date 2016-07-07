@@ -7,13 +7,12 @@
         <div class="inner">
             <div class="logo"><span class="icon fa-diamond"></span></div>
             <h2>This is Endeavors</h2>
-            <p>Hello, this is eddawy blog I just called it endeavors because that's what it is.</p>
+            <p>Hello, this is Eddawy trying to say something.</p>
         </div>
     </section>
 
 <!-- Wrapper -->
     <section id="wrapper">
-
         {% for topic in latest_topics %}
         <!-- One -->
             <section id="{{topic.title}}" class="wrapper spotlight withshadow">
@@ -34,7 +33,7 @@
                 <h2 class="major">Featured Topics</h2>
                 <p>We have selected those topics for you with no valid reason.</p>
                 <section class="features">
-                  {% for topic in latest_topics %}
+                  {% for topic in featured_topics %}
                     <article>
                         <a href="/topics/{{topic.id}}" class="image"><img src="/{{ topic.image }}" alt="" /></a>
                         <h3 class="major">{{ topic.title }}</h3>
