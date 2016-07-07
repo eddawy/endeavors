@@ -17,6 +17,7 @@
     <!-- Content -->
     <div class="wrapper">
         <div class="inner article">
+          <img src="{{ topic.image.url }}" alt="" class="topic_image"/>
             <p>{{ topic.body }}</p>
         </div>
     </div>
@@ -25,7 +26,7 @@
             <section class="features">
                 {% for topic in featured_topics %}
                     <article>
-                        <a href="/topics/{{topic.id}}" class="image"><img src="/{{ topic.image }}" alt="" /></a>
+                        <a href="/topics/{{topic.id}}" class="image"><img src="{{ topic.image.url }}" alt="" /></a>
                         <h3 class="major">{{ topic.title }}</h3>
                         <p>{{ topic.body|slice:"0:350" }} ...</p>
                         <a href="/topics/{{topic.id}}" class="special">Learn more</a>

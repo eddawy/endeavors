@@ -17,7 +17,7 @@
         <!-- One -->
             <section id="{{topic.title}}" class="wrapper spotlight withshadow">
                 <div class="inner">
-                    <a href="/topics/{{topic.id}}" class="image"><img src="/{{ topic.image }}" alt="" /></a>
+                    <a href="/topics/{{topic.id}}" class="image"><img src="{{ topic.image.url }}" alt="" /></a>
                     <div class="content">
                         <h2 class="major">{{ topic.title }}</h2>
                         <p>{{ topic.body|slice:"0:350" }} ...</p>
@@ -35,7 +35,7 @@
                 <section class="features">
                   {% for topic in featured_topics %}
                     <article>
-                        <a href="/topics/{{topic.id}}" class="image"><img src="/{{ topic.image }}" alt="" /></a>
+                        <a href="/topics/{{topic.id}}" class="image"><img src="{{ topic.image.url }}" alt="" /></a>
                         <h3 class="major">{{ topic.title }}</h3>
                         <p>{{ topic.body|slice:"0:350" }} ...</p>
                         <a href="/topics/{{topic.id}}" class="special">Learn more</a>

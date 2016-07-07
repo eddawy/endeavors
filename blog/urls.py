@@ -1,4 +1,5 @@
-from django.conf.urls import url
+from django.conf.urls import url, patterns
+from django.conf import settings
 
 from blog.views.feedback import FeedbackView
 from blog.views.section import SectionView
@@ -18,3 +19,8 @@ urlpatterns = [
     url(r'^feedbacks/$', FeedbackView().handle_request_without_params),
     url(r'^elements/$', index.elements),
 ]
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += patterns('',
+        (r'^media/uploads/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}))

@@ -6,7 +6,7 @@ class Topic(models.Model):
     title = models.CharField(max_length = 200, null = False)
     quote = models.CharField(max_length = 400)
     body = models.TextField(null = False)
-    image = models.ImageField(upload_to = 'static/images/blog')
+    image = models.ImageField(upload_to = 'blog/images/')
     featured = models.BooleanField(default = False)
     subject = models.ForeignKey(Subject, related_name='topics')
     user = models.ForeignKey(User, related_name='topics')
@@ -23,7 +23,8 @@ class Topic(models.Model):
 
     @classmethod
     def get_featured_topics(cls):
-        featured_topics = cls.objects.filter(featured=True).order_by('-updated_at')[:4]
+        featured_topics = cls.objects.filter(featured=1).order_by('-updated_at')[:4]
+        return featured_topics
 
 class TopicVisit(models.Model):
     topic = models.ForeignKey(Topic, related_name="topic_visits")
