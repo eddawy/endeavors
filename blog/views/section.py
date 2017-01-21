@@ -6,6 +6,10 @@ from blog.views.base import BaseView
 from ..models import Section
 
 class SectionView(BaseView):
+
+    def index(self, request):
+        pass
+
     def show(self, request, id):
         section = Section.Section.objects.get(id = id)
         subjects = section.subjects.all
@@ -15,3 +19,12 @@ class SectionView(BaseView):
             'subjects': subjects,
         }
         return HttpResponse(template.render(context, request))
+
+    def create(self, request):
+        pass
+
+    def update(self, request, id):
+        pass
+
+    def delete(self, request, id):
+        pass

@@ -6,19 +6,19 @@ from django.views.generic import TemplateView
 class BaseView(TemplateView):
     __metaclass__ = ABCMeta
 
-    def create_session(self, request):
+    def _create_session(self, request):
         if not request.session.exists(request.session.session_key):
             request.session.create()
 
     def handle_request_without_params(self, request):
-        self.create_session(request)
+        self._create_session(request)
         if request.method == 'GET':
             return self.index(request)
         elif request.method == 'POST':
             return self.handle_create(request)
 
     def handle_request_with_params(self, request, id):
-        self.create_session(request)
+        self._create_session(request)
         if request.method == 'GET':
             return self.show(request, id)
         elif request.method == 'PUT':
@@ -27,15 +27,15 @@ class BaseView(TemplateView):
             return self.handle_delete(request, id)
 
     def handle_create(self, request):
-        self.create_session(request)
+        self._create_session(request)
         return self.create(request)
 
     def handle_update(self, request, id):
-        self.create_session(request)
+        self._create_session(request)
         return self.update(request, id)
 
     def handle_delete(self, request, id):
-        self.create_session(request)
+        self._create_session(request)
         return self.delete(request, id)
 
     @abstractmethod

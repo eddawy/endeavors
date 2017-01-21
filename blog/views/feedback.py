@@ -9,3 +9,15 @@ class FeedbackView(BaseView):
         if form.is_valid():
             form.save()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+    def index(self, request):
+        pass
+
+    def show(self, request, id):
+        pass
+
+    def update(self, request, id):
+        pass
+
+    def delete(self, request, id):
+        pass

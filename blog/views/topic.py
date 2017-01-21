@@ -31,3 +31,12 @@ class TopicView(BaseView):
             'featured_topics': featured_topics,
         }
         return HttpResponse(template.render(context, request))
+
+    def create(self, request):
+        pass
+
+    def update(self, request, id):
+        pass
+
+    def delete(self, request, id):
+        pass
