@@ -18,7 +18,11 @@
     <div class="wrapper">
         <div class="inner article">
           <img src="{{ topic.image.url }}" alt="" class="topic_image"/>
-            <div>{{ topic.body }}</div>
+            <div>
+              {% autoescape off %}
+                {{ topic.body }}
+              {% endautoescape %}
+          </div>
         </div>
     </div>
     <div class="wrapper">
@@ -28,7 +32,7 @@
                     <article>
                         <a href="/topics/{{topic.id}}" class="image"><img src="{{ topic.image.url }}" alt="" /></a>
                         <h3 class="major">{{ topic.title }}</h3>
-                        <p>{{ topic.body|slice:"0:350" }} ...</p>
+                          <p>{% autoescape off %}{{ topic.body|slice:"0:350" }} ...{% endautoescape %}</p>
                         <a href="/topics/{{topic.id}}" class="special">Learn more</a>
                     </article>
                 {% endfor %}

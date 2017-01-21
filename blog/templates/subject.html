@@ -20,7 +20,7 @@
                 <a href="/topics/{{ topic.id }}" class="image"><img src="{{ topic.image.url }}" alt="" /></a>
                 <div class="content">
                   <h2 class="major">{{ topic }}</h2>
-                  <p>{{ topic.body }}</p>
+                  <div>{% autoescape off %}{{ topic.body|slice:"0:350" }} ...{% endautoescape %}</div>
                   <a href="/topics/{{ topic.id }}" class="special">Read more</a>
               </div>
             </div>
@@ -31,7 +31,7 @@
             <article>
               <a href="/topics/{{ featured_topic.id }}" class="image"><img src="{{ featured_topic.image.url }}" alt="" /></a>
               <h3 class="major">{{ featured_topic }}</h3>
-              <p>{{ featured_topic.body }}</p>
+              <div>{% autoescape off %}{{ featured_topic.body|slice:"0:350" }} ...{% endautoescape %}</div>
               <a href="/topics/{{ featured_topic.id }}" class="special">Read more</a>
             </article>
             {% endfor %}

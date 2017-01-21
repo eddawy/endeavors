@@ -1,11 +1,12 @@
 from django.db import models
 from .Subject import Subject
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 class Topic(models.Model):
     title = models.CharField(max_length = 200, null = False)
     quote = models.CharField(max_length = 400)
-    body = models.TextField(null = False)
+    body = RichTextField(null = False)
     image = models.ImageField(upload_to = 'blog/images/')
     featured = models.BooleanField(default = False)
     subject = models.ForeignKey(Subject, related_name='topics')
